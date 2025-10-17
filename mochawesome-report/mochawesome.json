@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-28T16:34:31.620Z",
+    "end": "2025-09-28T16:34:53.602Z",
+    "duration": 21982,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "02f023d9-e429-46c7-bc18-8d177c560c34",
+      "title": "",
+      "fullFile": "cypress/integration/examples/Test1Framework.js",
+      "file": "cypress/integration/examples/Test1Framework.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3f0511ba-8958-4fa1-a7f0-434d57a3f309",
+          "title": "End to end ecommerce",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Submit Order",
+              "fullTitle": "End to end ecommerce Submit Order",
+              "timedOut": null,
+              "duration": 21209,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/Test1Framework.js/End to end ecommerce -- Submit Order (failed).png\"\n    ]\n  ]\n}",
+              "code": "const productName = this.data.productName;\ncy.visit(Cypress.env('url') + \"/loginpagePractise/#/\");\nconst productpage = this.homepage.login(this.data.username, this.data.password);\ncy.log('Logged in successfully');\nproductpage.pageValidation();\nproductpage.getCardCount().should('have.length', 4);\nproductpage.selectProducts(productName);\nproductpage.selectFirstProduct();\nconst cartPage = productpage.goToCart();\ncartPage.sumOfProducts().then(function (sum) {\n  expect(sum).to.be.lessThan(2000000);\n});\nconst confirmationPage = cartPage.checkoutItems();\nconfirmationPage.submitFormDetails('India');\nconfirmationPage.getAlertText().should('contain.text', 'gfhfhfSuccess! Thank you! Your order will be delivered in next few weeks :-).');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<div.alert.alert-success.alert-dismissible>' to contain text 'gfhfhfSuccess! Thank you! Your order will be delivered in next few weeks :-).', but the text was '\\n          ×\\n          Success! Thank you! Your order will be delivered in next few weeks :-).\\n        '",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<div.alert.alert-success.alert-dismissible>' to contain text 'gfhfhfSuccess! Thank you! Your order will be delivered in next few weeks :-).', but the text was '\\n          ×\\n          Success! Thank you! Your order will be delivered in next few weeks :-).\\n        '\n    at Context.eval (webpack://cypressautomation/./cypress/integration/examples/Test1Framework.js:29:38)",
+                "diff": "- '\\n          ×\\n          Success! Thank you! Your order will be delivered in next few weeks :-).\\n        '\n+ 'gfhfhfSuccess! Thank you! Your order will be delivered in next few weeks :-).'\n"
+              },
+              "uuid": "11ba5bec-c61c-4fc3-86f0-7fa769e66c1f",
+              "parentUUID": "3f0511ba-8958-4fa1-a7f0-434d57a3f309",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "11ba5bec-c61c-4fc3-86f0-7fa769e66c1f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21209,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.0"
+    }
+  }
+}
